@@ -30,3 +30,7 @@ UPDATE AddressBook
 SET Address = '456 New Address St'
 WHERE FirstName = 'Alice' AND LastName = 'Smith';
 
+-- Delete a contact named John Doe
+DELETE FROM AddressBook
+WHERE FirstName = 'Alice' AND LastName = 'Smith';
+
