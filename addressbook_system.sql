@@ -34,3 +34,15 @@ WHERE FirstName = 'Alice' AND LastName = 'Smith';
 DELETE FROM AddressBook
 WHERE FirstName = 'Alice' AND LastName = 'Smith';
 
+SELECT *FROM AddressBook;
+
+-- Retrieve persons from a specific city
+SELECT *
+FROM AddressBook
+WHERE City = 'Everytown';
+
+-- Retrieve persons from a specific state
+SELECT *
+FROM AddressBook
+WHERE State = 'TX';
+
