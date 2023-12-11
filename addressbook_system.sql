@@ -55,3 +55,9 @@ GROUP BY City;
 SELECT State, COUNT(*) AS StateSize
 FROM AddressBook
 GROUP BY State;
+
+-- Retrieve entries sorted alphabetically by Person's name for a given city
+SELECT *
+FROM AddressBook
+WHERE City = 'Yourtown'
+ORDER BY FirstName, LastName;
