@@ -24,3 +24,9 @@ VALUES
     ('Mary', 'Jones', '101 Pine St', 'Yourtown', 'FL', '98765', '555-4321', 'mary.jones@example.com'),
     ('David', 'Williams', '202 Maple St', 'Hisville', 'WA', '23456', '555-9876', 'david.williams@example.com'),
     ('Emma', 'Brown', '303 Cedar St', 'Everytown', 'IL', '34567', '555-2345', 'emma.brown@example.com');
+    
+-- Update the address for a contact named John Doe
+UPDATE AddressBook
+SET Address = '456 New Address St'
+WHERE FirstName = 'Alice' AND LastName = 'Smith';
+
