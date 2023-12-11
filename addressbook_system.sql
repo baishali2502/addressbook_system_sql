@@ -46,3 +46,12 @@ SELECT *
 FROM AddressBook
 WHERE State = 'TX';
 
+-- Get the size of Address Book by City
+SELECT City, COUNT(*) AS CitySize
+FROM AddressBook
+GROUP BY City;
+
+-- Get the size of Address Book by State
+SELECT State, COUNT(*) AS StateSize
+FROM AddressBook
+GROUP BY State;
