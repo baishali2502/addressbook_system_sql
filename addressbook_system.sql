@@ -133,3 +133,15 @@ FROM
     AddressBook
 GROUP BY
     TYPE;
+
+-- -------------------------------------------- UC-11 ----------------------------------------------
+
+-- Update contact with ContactID 2 to be a Friend
+UPDATE AddressBook
+SET TYPE = 'Friends'
+WHERE ContactID = 2;
+
+-- Update contact with ContactID 2 to be a Family
+UPDATE AddressBook
+SET TYPE = 'Family'
+WHERE ContactID = 2;
