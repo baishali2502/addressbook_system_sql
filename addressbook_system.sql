@@ -145,3 +145,41 @@ WHERE ContactID = 2;
 UPDATE AddressBook
 SET TYPE = 'Family'
 WHERE ContactID = 2;
+-- -------------------------------------------- UC-12 ----------------------------------------------
+/*
+Entities:-
+Contact
+AddressBookDetails
+This relationship is a one-to-one relationship
+*/
+CREATE TABLE Contact (
+    ContactID INT PRIMARY KEY,
+    FirstName VARCHAR(255),
+    LastName VARCHAR(255),
+    Address VARCHAR(255),
+    City VARCHAR(255),
+    State VARCHAR(255),
+    Zip VARCHAR(10),
+    Phone VARCHAR(15),
+    Email VARCHAR(255),
+    NAME VARCHAR(255),
+    TYPE VARCHAR(50)
+);
+CREATE TABLE AddressBookDetails (
+    ContactID INT PRIMARY KEY,
+    NAME VARCHAR(255),
+    TYPE VARCHAR(50),
+    FOREIGN KEY (ContactID) REFERENCES Contact(ContactID)
+);
+-- Populate the Contact table
+INSERT INTO Contact VALUES
+    (2, 'Bob', 'Johnson', '789 Elm St', 'Someville', 'TX', '67890', '555-8765', 'bob.johnson@example.com', 'Bob Johnson', 'Family'),
+    (3, 'Mary', 'Jones', '101 Pine St', 'Yourtown', 'FL', '98765', '555-4321', 'mary.jones@example.com', 'Mary Jones', 'Friends'),
+    (4, 'David', 'Williams', '202 Maple St', 'Hisville', 'WA', '23456', '555-9876', 'david.williams@example.com', 'David Williams', 'Profession'),
+    (5, 'Emma', 'Brown', '303 Cedar St', 'Everytown', 'IL', '34567', '555-2345', 'emma.brown@example.com', 'Emma Brown', 'Friends');
+-- Populate the AddressBookDetails table
+INSERT INTO AddressBookDetails VALUES
+    (2, 'Bob Johnson', 'Family'),
+    (3, 'Mary Jones', 'Friends'),
+    (4, 'David Williams', 'Profession'),
+    (5, 'Emma Brown', 'Friends');
