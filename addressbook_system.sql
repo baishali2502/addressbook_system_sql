@@ -124,4 +124,12 @@ UPDATE AddressBook
 SET NAME = 'Emma Brown', TYPE = 'Friends'
 WHERE ContactID = 5;
 
-
+-- -------------------------------------------- UC-10 ----------------------------------------------
+-- Get the number of contact persons (count) by type
+SELECT
+    TYPE,
+    COUNT(*) AS NumberOfContacts
+FROM
+    AddressBook
+GROUP BY
+    TYPE;
