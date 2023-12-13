@@ -183,3 +183,46 @@ INSERT INTO AddressBookDetails VALUES
     (3, 'Mary Jones', 'Friends'),
     (4, 'David Williams', 'Profession'),
     (5, 'Emma Brown', 'Friends');
+    
+    
+-- -------------------------------------------- UC-13 ----------------------------------------------
+
+-- UC-6:Ability to Retrieve Person belonging tO a City or State
+
+-- Retrieve persons belonging to a specific City
+SELECT *
+FROM Contact
+WHERE City = 'Yourtown';
+-- Retrieve persons belonging to a specific State
+SELECT *
+FROM Contact
+WHERE State = 'TX'; 
+
+-- UC-7:Size of the address book by city and state
+
+SELECT
+    City,
+    COUNT(*) AS CitySize
+FROM Contact
+GROUP BY City;
+
+SELECT
+    State,
+    COUNT(*) AS StateSize
+FROM Contact
+GROUP BY State;
+
+-- UC-8:Ability to retrieve entries sorted alphabetically by Person’s name for a given city
+SELECT *
+FROM Contact
+WHERE City = 'Someville'
+ORDER BY FirstName, LastName;
+
+-- UC-10:Get the no. of contact persons (count) by type
+SELECT
+    TYPE,
+    COUNT(*) AS NumberOfContacts
+FROM
+    AddressBookDetails
+GROUP BY
+    TYPE;
