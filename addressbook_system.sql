@@ -61,3 +61,67 @@ SELECT *
 FROM AddressBook
 WHERE City = 'Yourtown'
 ORDER BY FirstName, LastName;
+
+SELECT *FROM AddressBook;
+
+
+-- -------------------------------------------- UC-9 ---------------------------------------------------
+
+--  Create a new table with columns for Name, Type, and then join it with the existing AddressBook table based on ContactID.
+
+-- Create a new table for Name and Type
+CREATE TABLE AddressBookDetails (
+    ContactID INT,
+    NAME VARCHAR(255),
+    TYPE VARCHAR(50)
+);
+
+-- Populate the new table with sample data (you can update it with your actual data)
+INSERT INTO AddressBookDetails (ContactID, NAME, TYPE)
+VALUES
+    (2, 'Bob Johnson', 'Family'),
+    (3, 'Mary Jones', 'Friends'),
+    (4, 'David Williams', 'Profession'),
+    (5, 'Emma Brown', 'Friends');
+
+-- Join the existing AddressBook table with the new AddressBookDetails table
+SELECT
+    ab.ContactID,
+    ab.FirstName,
+    ab.LastName,
+    ab.Address,
+    ab.City,
+    ab.State,
+    ab.Zip,
+    ab.Phone,
+    ab.Email,
+    abd.Name,
+    abd.Type
+FROM
+    AddressBook ab
+JOIN
+    AddressBookDetails abd ON ab.ContactID = abd.ContactID;
+    
+-- Alter the AddressBook table to add the Name and Type columns.
+ALTER TABLE AddressBook
+ADD COLUMN NAME VARCHAR(255),
+ADD COLUMN TYPE VARCHAR(50);
+
+-- Update the AddressBook table with Name and Type values
+UPDATE AddressBook
+SET NAME = 'Bob Johnson', TYPE = 'Family'
+WHERE ContactID = 2;
+
+UPDATE AddressBook
+SET NAME = 'Mary Jones', TYPE = 'Friends'
+WHERE ContactID = 3;
+
+UPDATE AddressBook
+SET NAME = 'David Williams', TYPE = 'Profession'
+WHERE ContactID = 4;
+
+UPDATE AddressBook
+SET NAME = 'Emma Brown', TYPE = 'Friends'
+WHERE ContactID = 5;
+
+
